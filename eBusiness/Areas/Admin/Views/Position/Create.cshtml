@@ -1,0 +1,22 @@
+﻿@using eBusiness.Models;
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model Position
+
+<div class="mx-3">
+    <form method="post" asp-action="create">
+        <div class=" d-md-flex justify-content-md-center col-4 form-group">
+            <label asp-for="Name" >Enter your fullname</label>
+            <input  class="form-control" asp-for="Name" placeholder="Example Fullname">
+        </div>
+        
+        <div class="d-flex justify-content-center btn btn-primary">
+            <button type="submit" >Submit</button>
+        </div>
+
+    </form>
+</div>
+

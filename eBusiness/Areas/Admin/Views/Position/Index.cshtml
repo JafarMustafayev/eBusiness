@@ -1,0 +1,66 @@
+﻿@using eBusiness.Models;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int counter = 0;
+}
+
+@model List<Position>
+
+<div class="mx-3">
+
+    <div class="d-flex justify-content-between align-content-center">
+        <div><h2>Manage <strong>Position</strong></h2></div>
+        <div>
+            <a asp-action="create" asp-controller="position" class="btn">
+                <button type="button" class="btn btn-info"><i class="bi bi-pencil-square"></i> Create aposition</button>
+            </a>
+        </div>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Fulename</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    counter++;
+                    <tr>
+                        <th scope="row">@counter</th>
+                        <td colspan="2">@item.Id</td>
+                        <td colspan="2">@item.Name</td>
+                        <td>
+                            <div class="row ">
+                                <a asp-controller="Book" asp-action="Update" asp-route-id="@item.Id">
+                                    <button type="button" class="mt-2 btn  btn-info ">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                </a>
+                            
+                                <a asp-controller="Book" asp-action="Delete" asp-route-id="@item.Id" class="ms-2 item-delete">
+                                    <button type="button" class="mt-2 btn  btn-outline-danger ">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>
+
+
